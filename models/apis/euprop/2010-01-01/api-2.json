@@ -41,7 +41,7 @@
     "serviceFailureExceptionMessage":{"type":"string"},
     "PropertiesList":{
       "type":"list",
-      "member":{"shape":"Property"}
+      "member":{"shape":"Property", "locationName":"item"}
     },
     "Property":{
       "type":"structure",

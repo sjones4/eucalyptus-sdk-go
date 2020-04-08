@@ -21,7 +21,7 @@ func (s DescribePropertiesInput) String() string {
 type DescribePropertiesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Properties []Property `locationName:"properties" type:"list"`
+	Properties []Property `locationName:"properties" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
