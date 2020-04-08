@@ -6,7 +6,7 @@ import (
 	"context"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/internal/awsutil"
+	"github.com/sjones4/eucalyptus-sdk-go/internal/awsutil"
 )
 
 type DescribePropertiesInput struct {
