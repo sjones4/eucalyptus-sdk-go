@@ -12,7 +12,7 @@ import (
 type DescribePropertiesInput struct {
 	_ struct{} `type:"structure"`
 
-	Properties []string `locationName:"Property" type:"list"`
+	Properties []string `locationName:"Property" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

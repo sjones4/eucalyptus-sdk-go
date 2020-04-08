@@ -101,6 +101,7 @@
     },
     "PropertyPrefixListType": {
       "type": "list",
+      "flattened": true,
       "member": {
         "shape": "PropertyPrefixType"
       }
