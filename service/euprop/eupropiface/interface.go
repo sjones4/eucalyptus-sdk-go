@@ -63,7 +63,7 @@ import (
 type ClientAPI interface {
 	DescribePropertiesRequest(*euprop.DescribePropertiesInput) euprop.DescribePropertiesRequest
 
-	ModifyPropertyRequest(*euprop.ModifyPropertyInput) euprop.ModifyPropertyRequest
+	ModifyPropertyValueRequest(*euprop.ModifyPropertyValueInput) euprop.ModifyPropertyValueRequest
 }
 
 var _ ClientAPI = (*euprop.Client)(nil)

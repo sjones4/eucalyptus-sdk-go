@@ -30,8 +30,8 @@
         }
       ]
     },
-    "ModifyProperty": {
-      "name": "ModifyProperty",
+    "ModifyPropertyValue": {
+      "name": "ModifyPropertyValue",
       "http": {
         "method": "POST",
         "requestUri": "/"
