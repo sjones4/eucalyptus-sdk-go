@@ -1,70 +1,165 @@
 {
-  "version":"2.0",
-  "metadata":{
-    "apiVersion":"2010-01-01",
-    "endpointPrefix":"properties",
-    "protocol":"query",
-    "serviceAbbreviation":"Eucalyptus Properties",
-    "serviceFullName":"Eucalyptus Cloud Properties Service",
-    "serviceId":"euprop",
-    "signatureVersion":"v4",
-    "uid":"euprop-2010-01-01",
-    "xmlNamespace":"http://msgs.eucalyptus.com/4.4.5"
+  "version": "2.0",
+  "metadata": {
+    "apiVersion": "2010-01-01",
+    "endpointPrefix": "properties",
+    "protocol": "query",
+    "serviceAbbreviation": "Eucalyptus Properties",
+    "serviceFullName": "Eucalyptus Cloud Properties Service",
+    "serviceId": "euprop",
+    "signatureVersion": "v4",
+    "uid": "euprop-2010-01-01",
+    "xmlNamespace": "http://msgs.eucalyptus.com/4.4.5"
   },
-  "operations":{
-    "DescribeProperties":{
-      "name":"DescribeProperties",
-      "http":{
-        "method":"POST",
-        "requestUri":"/"
+  "operations": {
+    "DescribeProperties": {
+      "name": "DescribeProperties",
+      "http": {
+        "method": "POST",
+        "requestUri": "/"
       },
-      "input":{"shape":"DescribePropertiesRequest"},
-      "output":{"shape":"DescribePropertiesResponse"},
-      "errors":[
-        {"shape":"ServiceFailureException"}
+      "input": {
+        "shape": "DescribePropertiesRequest"
+      },
+      "output": {
+        "shape": "DescribePropertiesResponse"
+      },
+      "errors": [
+        {
+          "shape": "ServiceFailureException"
+        }
+      ]
+    },
+    "ModifyProperty": {
+      "name": "ModifyProperty",
+      "http": {
+        "method": "POST",
+        "requestUri": "/"
+      },
+      "input": {
+        "shape": "ModifyPropertyRequest"
+      },
+      "output": {
+        "shape": "ModifyPropertyResponse"
+      },
+      "errors": [
+        {
+          "shape": "ServiceFailureException"
+        }
       ]
     }
   },
-  "shapes":{
-    "String":{"type":"string"},
-    "ServiceFailureException":{
-      "type":"structure",
-      "members":{
-        "message":{"shape":"serviceFailureExceptionMessage"}
-      },
-      "error":{
-        "code":"ServiceFailure",
-        "httpStatusCode":500
-      },
-      "exception":true
+  "shapes": {
+    "Boolean": {
+      "type": "boolean"
     },
-    "serviceFailureExceptionMessage":{"type":"string"},
-    "PropertiesList":{
-      "type":"list",
-      "member":{"shape":"Property", "locationName":"item"}
+    "String": {
+      "type": "string"
     },
-    "Property":{
-      "type":"structure",
-      "members":{
-        "name":{
-          "shape":"String"
+    "ServiceFailureException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "shape": "serviceFailureExceptionMessage"
+        }
+      },
+      "error": {
+        "code": "ServiceFailure",
+        "httpStatusCode": 500
+      },
+      "exception": true
+    },
+    "serviceFailureExceptionMessage": {
+      "type": "string"
+    },
+    "PropertiesList": {
+      "type": "list",
+      "member": {
+        "shape": "Property",
+        "locationName": "item"
+      }
+    },
+    "Property": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "shape": "String"
         },
-        "value":{
-          "shape":"String"
+        "value": {
+          "shape": "String"
+        },
+        "description": {
+          "shape": "String"
+        },
+        "defaultValue": {
+          "shape": "String"
+        },
+        "readOnly": {
+          "shape": "Boolean"
         }
       }
     },
-    "DescribePropertiesRequest":{
-      "type":"structure",
-      "members":{
+    "PropertyPrefixListType": {
+      "type": "list",
+      "member": {
+        "shape": "PropertyPrefixType"
       }
     },
-    "DescribePropertiesResponse":{
-      "type":"structure",
+    "PropertyPrefixType": {
+      "type": "string",
+      "max": 256,
+      "min": 1
+    },
+    "DescribePropertiesRequest": {
+      "type": "structure",
+      "members": {
+        "properties": {
+          "shape": "PropertyPrefixListType",
+          "locationName": "Property"
+        }
+      }
+    },
+    "DescribePropertiesResponse": {
+      "type": "structure",
       "locationName": "DescribePropertiesResponseType",
-      "members":{
-        "properties":{
-          "shape":"PropertiesList"
+      "members": {
+        "properties": {
+          "shape": "PropertiesList"
+        }
+      }
+    },
+    "ModifyPropertyRequest": {
+      "type": "structure",
+      "required": [
+        "name"
+      ],
+      "members": {
+        "name": {
+          "shape": "String",
+          "locationName": "Name"
+        },
+        "value": {
+          "shape": "String",
+          "locationName": "Value"
+        },
+        "reset": {
+          "shape": "Boolean",
+          "locationName": "Reset"
+        }
+      }
+    },
+    "ModifyPropertyResponse": {
+      "type": "structure",
+      "locationName": "ModifyPropertyValueResponseType",
+      "members": {
+        "name": {
+          "shape": "String"
+        },
+        "value": {
+          "shape": "String"
+        },
+        "oldValue": {
+          "shape": "String"
         }
       }
     }

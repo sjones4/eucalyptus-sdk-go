@@ -13,7 +13,13 @@ var _ = awsutil.Prettify
 type Property struct {
 	_ struct{} `type:"structure"`
 
+	DefaultValue *string `locationName:"defaultValue" type:"string"`
+
+	Description *string `locationName:"description" type:"string"`
+
 	Name *string `locationName:"name" type:"string"`
+
+	ReadOnly *bool `locationName:"readOnly" type:"boolean"`
 
 	Value *string `locationName:"value" type:"string"`
 }

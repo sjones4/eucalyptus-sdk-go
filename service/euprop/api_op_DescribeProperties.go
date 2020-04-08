@@ -11,6 +11,8 @@ import (
 
 type DescribePropertiesInput struct {
 	_ struct{} `type:"structure"`
+
+	Properties []string `locationName:"Property" type:"list"`
 }
 
 // String returns the string representation

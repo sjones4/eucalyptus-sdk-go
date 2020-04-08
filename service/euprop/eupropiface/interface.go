@@ -62,6 +62,8 @@ import (
 // tooling to generate mocks to satisfy the interfaces.
 type ClientAPI interface {
 	DescribePropertiesRequest(*euprop.DescribePropertiesInput) euprop.DescribePropertiesRequest
+
+	ModifyPropertyRequest(*euprop.ModifyPropertyInput) euprop.ModifyPropertyRequest
 }
 
 var _ ClientAPI = (*euprop.Client)(nil)
