@@ -61,6 +61,7 @@
     },
     "DescribePropertiesResponse":{
       "type":"structure",
+      "locationName": "DescribePropertiesResponseType",
       "members":{
         "properties":{
           "shape":"PropertiesList"
