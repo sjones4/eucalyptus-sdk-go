@@ -41,6 +41,8 @@ type DeregisterServiceOutput struct {
 	_ struct{} `locationName:"DeregisterServiceResponseType" type:"structure"`
 
 	DeregisteredServices []ServiceId `locationName:"deregisteredServices" locationNameList:"item" type:"list"`
+
+	RegistrationMetadata *RegistrationMetadata `locationName:"ServiceRegistrationMessage" type:"structure"`
 }
 
 // String returns the string representation

@@ -4,6 +4,10 @@ package euserv
 
 const (
 
+	// ErrCodeModifyServiceException for service response error code
+	// "ModifyServiceType".
+	ErrCodeModifyServiceException = "ModifyServiceType"
+
 	// ErrCodeServiceFailureException for service response error code
 	// "ServiceFailure".
 	ErrCodeServiceFailureException = "ServiceFailure"

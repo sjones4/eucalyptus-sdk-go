@@ -80,6 +80,9 @@
       },
       "errors": [
         {
+          "shape": "ModifyServiceException"
+        },
+        {
           "shape": "ServiceFailureException"
         }
       ]
@@ -147,22 +150,31 @@
         "STOP"
       ]
     },
+    "ModifyServiceException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "shape": "String"
+        }
+      },
+      "error": {
+        "code": "ModifyServiceType",
+        "httpStatusCode": 400
+      },
+      "exception": true
+    },
     "ServiceFailureException": {
       "type": "structure",
       "members": {
         "message": {
-          "shape": "serviceFailureExceptionMessage"
+          "shape": "String"
         }
       },
       "error": {
         "code": "ServiceFailure",
         "httpStatusCode": 500
       },
-      "locationName": "Response",
       "exception": true
-    },
-    "serviceFailureExceptionMessage": {
-      "type": "string"
     },
     "StringEntryList": {
       "type": "list",
@@ -355,6 +367,18 @@
         }
       }
     },
+    "RegistrationMetadata": {
+      "type": "structure",
+      "members": {
+        "reponseMetadata": {
+          "shape": "ResponseMetadata",
+          "locationName": "EmpyreanMessage"
+        },
+        "statusMessages": {
+          "shape": "StringEntryList"
+        }
+      }
+    },
     "DescribeAvailableServiceTypesRequest": {
       "type": "structure",
       "members": {
@@ -495,6 +519,10 @@
       "type": "structure",
       "locationName": "RegisterServiceResponseType",
       "members": {
+        "registrationMetadata": {
+          "shape": "RegistrationMetadata",
+          "locationName": "ServiceRegistrationMessage"
+        },
         "registeredServices": {
           "shape": "ServiceIdList"
         }
@@ -520,6 +548,10 @@
       "type": "structure",
       "locationName": "DeregisterServiceResponseType",
       "members": {
+        "registrationMetadata": {
+          "shape": "RegistrationMetadata",
+          "locationName": "ServiceRegistrationMessage"
+        },
         "deregisteredServices": {
           "shape": "ServiceIdList"
         }

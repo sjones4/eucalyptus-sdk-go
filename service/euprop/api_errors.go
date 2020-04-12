@@ -4,6 +4,10 @@ package euprop
 
 const (
 
+	// ErrCodeModifyPropertyException for service response error code
+	// "ModifyPropertyValueType".
+	ErrCodeModifyPropertyException = "ModifyPropertyValueType"
+
 	// ErrCodeServiceFailureException for service response error code
 	// "ServiceFailure".
 	ErrCodeServiceFailureException = "ServiceFailure"

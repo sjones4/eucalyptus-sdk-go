@@ -38,6 +38,19 @@ func (s *Filter) Validate() error {
 	return nil
 }
 
+type RegistrationMetadata struct {
+	_ struct{} `type:"structure"`
+
+	ReponseMetadata *ResponseMetadata `locationName:"EmpyreanMessage" type:"structure"`
+
+	StatusMessages []StringEntry `locationName:"statusMessages" locationNameList:"item" type:"list"`
+}
+
+// String returns the string representation
+func (s RegistrationMetadata) String() string {
+	return awsutil.Prettify(s)
+}
+
 type ResponseMetadata struct {
 	_ struct{} `type:"structure"`
 

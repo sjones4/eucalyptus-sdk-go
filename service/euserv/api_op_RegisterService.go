@@ -62,6 +62,8 @@ type RegisterServiceOutput struct {
 	_ struct{} `locationName:"RegisterServiceResponseType" type:"structure"`
 
 	RegisteredServices []ServiceId `locationName:"registeredServices" locationNameList:"item" type:"list"`
+
+	RegistrationMetadata *RegistrationMetadata `locationName:"ServiceRegistrationMessage" type:"structure"`
 }
 
 // String returns the string representation

@@ -45,6 +45,9 @@
       "errors": [
         {
           "shape": "ServiceFailureException"
+        },
+        {
+          "shape": "ModifyPropertyException"
         }
       ]
     }
@@ -55,6 +58,19 @@
     },
     "String": {
       "type": "string"
+    },
+    "ModifyPropertyException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "shape": "String"
+        }
+      },
+      "error": {
+        "code": "ModifyPropertyValueType",
+        "httpStatusCode": 400
+      },
+      "exception": true
     },
     "ServiceFailureException": {
       "type": "structure",
